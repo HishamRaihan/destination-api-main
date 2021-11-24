@@ -13,7 +13,8 @@ curl "${API}${URL_PATH}" \
       "place": "'"${PLACE}"'",
       "monthTraveled": "'"${MONTH}"'",
       "daysStayed": "'"${DAYS}"'",
-      "moneySpent": "'"${MONEYZ}"'"
+      "moneySpent": "'"${MONEYZ}"'",
+      "review": "'"${REVIEW}"'"
     }
   }'
 
@@ -22,4 +23,4 @@ echo
 # TOKEN=1275528618ab270b3705a9f83fd76743 TEXT="Wheres Wallie Now" TITLE="WALLIE WHERE ARE YOU" sh curl-scripts/examples/create.sh
 
 
-# TOKEN=be5df707f22b34931d996aa1c152870e PLACE="Wallies House" MONTH="Yesterday" DAYS=4 MONEYZ=2000 sh curl-scripts/destinations/create.sh
+# TOKEN=60f3eee50f371686ce0a540280227962 PLACE="Wallies other house" MONTH="Yesterday" DAYS=4 MONEYZ=2000 REVIEW="the place smelled like trash" sh curl-scripts/destinations/create.sh

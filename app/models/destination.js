@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const reviewSchema = require('./review')
+const reviewSchema = require('./review');
 const destinationSchema = new mongoose.Schema(
 	{
 		place: {
@@ -18,7 +18,9 @@ const destinationSchema = new mongoose.Schema(
 			type: Number,
 			required: true
 		},
-		review: [reviewSchema],
+		review: {
+			type: String
+		},
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
