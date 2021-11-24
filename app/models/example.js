@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const destinationSchema = new mongoose.Schema({
+const exampleSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -18,4 +18,4 @@ const destinationSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Destination', destinationSchema)
+module.exports = mongoose.model('Example', exampleSchema)
