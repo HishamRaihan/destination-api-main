@@ -10,7 +10,11 @@ curl "${API}${URL_PATH}/${ID}" \
 --header "Authorization: Bearer ${TOKEN}" \
 --data '{
     "destination": {
-      "text": "'"${TEXT}"'"
+       "place": "'"${PLACE}"'",
+      "monthTraveled": "'"${MONTH}"'",
+      "daysStayed": "'"${DAYS}"'",
+      "moneySpent": "'"${MONEYZ}"'",
+      "review": "'"${REVIEW}"'"
     }
   }'
 

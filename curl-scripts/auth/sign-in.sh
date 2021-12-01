@@ -1,4 +1,5 @@
 #!/bin/bash
+# EMAIL="hisham@gmail.email" PASSWORD="hr" sh curl-scripts/auth/sign-in.sh
 
 API="http://localhost:4741"
 URL_PATH="/sign-in"
@@ -15,4 +16,3 @@ curl "${API}${URL_PATH}" \
   }'
 
 echo
-# EMAIL="hisham@gmail.email" PASSWORD="hr" sh curl-scripts/auth/sign-in.sh

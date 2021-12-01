@@ -28,14 +28,22 @@ const requireToken = passport.authenticate('bearer', { session: false });
 const router = express.Router();
 
 // INDEX
-// GET /examples
-router.get('/destinations', requireToken, (req, res, next) => {
+// GET /examples practice
+router.get('/destinations', (req, res, next) => {
 	Destination.find()
 		// respond with status 200 and JSON of the destinations
 		.then((destinations) => res.status(200).json({ destinations: destinations }))
 		// if an error occurs, pass it to the handler
 		.catch(next);
 });
+// GET /examples
+// router.get('/destinations', requireToken, (req, res, next) => {
+// 	Destination.find()
+// 		// respond with status 200 and JSON of the destinations
+// 		.then((destinations) => res.status(200).json({ destinations: destinations }))
+// 		// if an error occurs, pass it to the handler
+// 		.catch(next);
+// });
 
 // SHOW
 // GET /destinations/5a7db6c74d55bc51bdf39793

@@ -21,5 +21,8 @@ const userSchema = new mongoose.Schema({
     }
   }
 })
+// can add username field type string and a virtual message and use username when displaying user
+// heroSchema.virtual('heroStats').get(function () {
+	// return `${this.fullName} from ${this.world } Stats: Sex - ${this.gender}, Special Ability - ${this.specialAbility}, Height - ${this.height}, Weight - ${this.weight}, Power Level - ${this.powerLevel}`;
 
 module.exports = mongoose.model('User', userSchema)
