@@ -9,4 +9,4 @@ curl "${API}${URL_PATH}/${ID}" \
   --request GET \
   --header "Authorization: Bearer ${TOKEN}"
 
-echo
+echo 

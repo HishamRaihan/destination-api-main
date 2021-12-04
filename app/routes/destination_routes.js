@@ -3,7 +3,7 @@ const express = require('express');
 // Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport');
 
-// pull in Mongoose model for examples
+// pull in Mongoose model for destinations
 const Destination = require('../models/destination');
 
 // this is a collection of methods that help us detect situations when we need
@@ -17,7 +17,7 @@ const handle404 = customErrors.handle404;
 const requireOwnership = customErrors.requireOwnership;
 
 // this is middleware that will remove blank fields from `req.body`, e.g.
-// { example: { title: '', text: 'foo' } } -> { example: { text: 'foo' } }
+// { destination: { title: '', text: 'foo' } } -> { destination: { text: 'foo' } }
 const removeBlanks = require('../../lib/remove_blank_fields');
 // passing this as a second argument to `router.<verb>` will make it
 // so that a token MUST be passed for that route to be available
@@ -28,7 +28,7 @@ const requireToken = passport.authenticate('bearer', { session: false });
 const router = express.Router();
 
 // INDEX
-// GET /examples practice
+// GET /destinations practice
 router.get('/destinations', (req, res, next) => {
 	Destination.find()
 		// respond with status 200 and JSON of the destinations
@@ -36,7 +36,7 @@ router.get('/destinations', (req, res, next) => {
 		// if an error occurs, pass it to the handler
 		.catch(next);
 });
-// GET /examples
+// GET /destinations
 // router.get('/destinations', requireToken, (req, res, next) => {
 // 	Destination.find()
 // 		// respond with status 200 and JSON of the destinations
@@ -51,8 +51,8 @@ router.get('/destinations/:id', requireToken, (req, res, next) => {
 	// req.params.id will be set based on the `:id` in the route
 	Destination.findById(req.params.id)
 		.then(handle404)
-		// if `findById` is succesful, respond with 200 and "example" JSON
-		.then((example) => res.status(200).json({ example: example }))
+		// if `findById` is succesful, respond with 200 and "destination" JSON
+		.then((destination) => res.status(200).json({ destination: destination }))
 		// if an error occurs, pass it to the handler
 		.catch(next);
 });
@@ -60,7 +60,7 @@ router.get('/destinations/:id', requireToken, (req, res, next) => {
 // CREATE
 // POST /destinations
 router.post('/destinations', requireToken, (req, res, next) => {
-	// set owner of new example to be current user
+	// set owner of new destination to be current user
 	req.body.destination.owner = req.user.id;
 
 	Destination.create(req.body.destination)
